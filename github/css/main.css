@@ -1,5 +1,155 @@
-body {
-    /* setting font */
-    font-family: 'Open Sans', sans-serif;
-    font-size: 100px;
+@charset "UTF-8";
+
+/* COMMON */
+.body__container {
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #333;
+}
+a {
+  text-decoration: none;
+}
+
+/* INNER LEFT / RIGHT */
+.float--left {
+  float: left;
+}
+.float--right {
+  float: right;
+}
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+/* BTN */
+.btn {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.5;
+  text-align: center;
+  /* linear-gradient(DIRECTION, COLOR1, COLOR2, ...); */
+  background: #eee linear-gradient(to bottom, #fcfcfc, #eee);
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+}
+.btn:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.07);
+}
+.btn.btn--primary {
+  border: 1px solid #65b836;
+  color: #fff;
+  background: #55a532 linear-gradient(#91dd70, #55ae2e);
+}
+
+/* INPUT */
+.input--text {
+  height: 34px;
+  padding: 0 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075); /* .75 아니고 .075 주의 */
+}
+.input--text:focus {
+  border-color: #51a7e8 !important; /* header #search 선택자를 덮어쓰기 위해서 사용 */
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(81, 167, 232, 0.5);
+}
+/* Vendor prefix(브라우저 업체별 접두어) */
+.input--text::-webkit-input-placeholder {
+  color: #cacaca;
+}
+.input--text:-ms-input-placeholder {
+  color: #cacaca;
+}
+.input--text::-moz-placeholder {
+  color: #cacaca;
+}
+
+/* SUMMARY */
+.summary__title {
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1.25;
+  margin-bottom: 18px;
+}
+.summary__description {
+  font-size: 26px;
+  font-weight: 300;
+  color: #767676;
+  line-height: 1.5;
+}
+
+/* SECTION */
+.section {
+  position: relative;
+}
+.section .inner {
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* HEADER */
+header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+  background: #fff;
+}
+header .inner {
+  max-width: 980px;
+  height: 78px;
+  margin: 0 auto; /* 가운데 정렬 단, width가 정의되어 있어야함. */
+}
+header .menu-group {
+  display: flex;
+  align-items: center; /* 수직 정렬 */
+  height: 100%;
+}
+header .logo {
+  margin-right: 10px;
+}
+header .logo a {
+  background: url('../img/logo.svg');
+  width: 32px;
+  height: 32px;
+  display: block;
+  /* a 태그는 인라인요소 -> block 변경 */
+  /* inline 요소는 범위를 가질 수 없음 */
+  text-indent: -9999px;
+  /* a 태그로 img 태그 역할을 할 때 alt 기능 */
+  /* 대체 텍스트 입력 9999는 명시적 */
+}
+header .logo a:hover {
+  background: url('../img/logo_on.svg');
+}
+header .main-menu {
+  display: flex;
+}
+header .main-menu li a {
+  display: block;
+  padding: 10px; /* 전체적인 범위 확장  */
+  color: #3c4146;
+}
+header .main-menu li a:hover {
+  color: #4078c0;
 }
