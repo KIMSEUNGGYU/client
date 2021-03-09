@@ -1,0 +1,217 @@
+:root {
+  /* Color */
+  --white-color: #fff;
+  --black-color: #140a00;
+  --blue-color: #045fd4;
+  --red-color: #ff0000;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+
+  /* Size */
+  --spacing: 12px;
+  --spacing-small: 6px;
+  --avatar-size: 36px;
+
+  /* Font Size */
+  --font-large: 20px;
+  --font-regular: 16px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+button:focus {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+}
+
+/* header */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing);
+  background: var(--black-color);
+  color: var(--white-color);
+}
+header .logo {
+  font-size: var(--font-large);
+}
+header .logo i {
+  color: var(--red-color);
+}
+header .icons i {
+  margin-right: 0.5em;
+}
+
+/* Video player */
+.player {
+  position: sticky;
+  top: 0;
+  text-align: center;
+  background: var(--black-color);
+}
+.player video {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+}
+
+/* Video info */
+.infoAndUpNext {
+  padding: var(--spacing);
+}
+
+.infoAndUpNext .info .metadata .hashtags {
+  display: flex;
+  color: var(--blue-color);
+  font-size: var(--font-small);
+}
+.infoAndUpNext .info .metadata .hashtags li {
+  margin-right: var(--spacing-small);
+}
+.infoAndUpNext .info .metadata .titleAndBtn {
+  display: flex;
+}
+.infoAndUpNext .info .metadata .titleAndBtn .title {
+  font-size: var(--font-medium);
+  margin-right: var(--spacing);
+}
+
+.infoAndUpNext .info .metadata .titleAndBtn .title.clamp {
+  /* clamp 좀더 생각해보기 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.infoAndUpNext .info .metadata .titleAndBtn .moreBtn {
+  /* 클릭시 애니메이션 */
+  height: 100%;
+  transition: transform 300ms ease-in-out;
+}
+.infoAndUpNext .info .metadata .titleAndBtn .moreBtn.clicked {
+  /* 180도 회전 */
+  transform: rotate(180deg);
+}
+
+.infoAndUpNext .info .metadata .views {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+/* actions */
+.infoAndUpNext .info .actions {
+  display: flex;
+  justify-content: space-around;
+  padding: var(--spacing) 0;
+}
+
+.infoAndUpNext .info .actions button {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+.infoAndUpNext .info .actions button i {
+  font-size: var(--font-regular);
+  margin: 0 auto; /* 이모지와 font 안 맞아서 가운데 정렬로 맞춤 */
+  margin-bottom: var(--spacing-small);
+}
+.infoAndUpNext .info .actions button i.active {
+  color: var(--blue-color);
+}
+
+/* channel */
+.info .channel {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--grey-light-color);
+  border-bottom: 1px solid var(--grey-light-color);
+}
+.info .channel .metadata {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing) 0;
+}
+.info .channel .metadata img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  margin-right: var(--spacing);
+}
+.info .channel .metadata .info {
+  display: flex;
+  flex-direction: column;
+}
+.info .channel .metadata .name {
+  font-size: var(--font-medium);
+}
+.info .channel .metadata .subscribers {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+.info .channel .subscribe {
+  text-transform: uppercase;
+  color: var(--red-color);
+  font-size: var(--font-medium);
+}
+
+/* up next */
+.upNext > .title {
+  display: inline-block;
+  font-size: var(--font-medium);
+  padding: var(--spacing) 0;
+  color: var(--grey-dark-color);
+}
+
+.upNext .item {
+  display: flex;
+}
+.upNext .item .img {
+  flex-basis: 35%;
+  margin-right: var(--spacing);
+}
+.upNext .item .img img {
+  width: 100%;
+}
+
+.upNext .item .iteminfo {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.upNext .item .iteminfo .title {
+  font-size: var(--font-small);
+}
+.upNext .item .iteminfo .name {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+.upNext .item .iteminfo .views {
+  font-size: var(--font-micro);
+  color: var(--grey-dark-color);
+}
+
+.upNext .item .moreBtn {
+  flex-basis: 5%;
+  height: 100%;
+}
