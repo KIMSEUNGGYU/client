@@ -75,6 +75,8 @@ header .icons i {
 
 /* Video info */
 .infoAndUpNext {
+  display: flex;
+  flex-direction: column;
   padding: var(--spacing);
 }
 
@@ -214,4 +216,15 @@ header .icons i {
 .upNext .item .moreBtn {
   flex-basis: 5%;
   height: 100%;
+}
+
+/* 데스크 탑 반응형 */
+@media screen and (min-width: 768px) {
+  .infoAndUpNext {
+    flex-direction: row;
+  }
+
+  .upNext {
+    padding: var(--spacing);
+  }
 }
