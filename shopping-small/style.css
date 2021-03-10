@@ -1,0 +1,95 @@
+/* COMMON */
+:root {
+  /* color */
+  --color-black: #3f454d;
+  --color-white: #ffffff;
+  --color-blue: #3b88c3;
+  --color-yellow: #fbbe28;
+  --color-pink: #fd7f84;
+  --color-light-grey: #dfdfdf;
+
+  /* size */
+  --size-medium: 36px;
+
+  /* spacing */
+  --spacing: 28px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background: var(--color-black);
+  margin: 0;
+}
+ul {
+  list-style: none;
+}
+img {
+  width: var(--size-medium);
+  height: var(--size-medium);
+}
+
+/* header */
+header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 atuo;
+}
+.logo img {
+  width: calc(var(--size-medium) * 3);
+  height: calc(var(--size-medium) * 3);
+}
+
+/* filter */
+.filter {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 5%;
+}
+.filter li:hover {
+  cursor: pointer;
+}
+
+.filter img {
+  width: var(--size-medium);
+  height: var(--size-medium);
+}
+.filter li span {
+  display: inline-block;
+  height: var(--size-medium);
+  border-radius: 4px;
+  padding: 5px 8px; /* span text 가운데.. 정렬 어찌 해야하지? */
+  font-weight: 550;
+}
+.filter li .blue {
+  background: var(--color-blue);
+}
+.filter li .yellow {
+  background: var(--color-yellow);
+}
+.filter li .pink {
+  background: var(--color-pink);
+}
+
+/* items */
+.items {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5%;
+}
+.items .item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 4px;
+  height: 3rem;
+  background: var(--color-white);
+  margin-top: calc(var(--size-medium) * 0.5);
+}
+.items .item img {
+  margin: 0 var(--spacing);
+}
