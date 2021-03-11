@@ -100,6 +100,9 @@ body {
   padding: var(--base-space);
   margin-bottom: var(--base-space);
 }
+.item.invisible {
+  display: none;
+}
 
 .item__thumbnail {
   width: var(--size-thumbnail);

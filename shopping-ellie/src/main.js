@@ -15,23 +15,45 @@ function displayItems(items) {
 // Create HTML list item from the given data item
 function createHTMLString(item) {
   return `
-    <li class="item">
+    <li class="item" data-type=${item.type} data-color=${item.color}>
         <img src="${item.image}" alt="${item.type}" class="item__thumbnail" />
         <span class="item__description">${item.gender}, ${item.size}</span>
     </li>
     `;
 }
 
-// 이벤트를 처리하는 함수는 on 으로 시작하는게 좋음!!
-function onButtonClick(event, items) {
-  const dataset = event.target.dataset;
-  const key = dataset.key;
-  const value = dataset.value;
-
+// button Click 이벤트시, 해당 하는 item들을 보여줌
+function onButtonClick(event) {
+  const { key, value } = event.target.dataset;
   if (key == null || value == null) return;
 
-  displayItems(items.filter((item) => item[key] === value));
+  items = document.querySelectorAll(".items .item");
+  updateItems(items, value);
 }
+
+function updateItems(items, value) {
+  items.forEach((item) => {
+    const { type, color } = item.dataset;
+
+    if (value === type || value === color) {
+      item.classList.remove("invisible");
+    } else {
+      item.classList.add("invisible");
+    }
+  });
+}
+
+// 이벤트를 처리하는 함수는 on 으로 시작하는게 좋음!!
+// element를 새로 만들어서 그렇게 좋지는 않음.
+// function onButtonClick(event, items) {
+//   const dataset = event.target.dataset;
+//   const key = dataset.key;
+//   const value = dataset.value;
+
+//   if (key == null || value == null) return;
+
+//   displayItems(items.filter((item) => item[key] === value));
+// }
 
 //
 function setEventListeners(items) {
@@ -42,7 +64,7 @@ function setEventListeners(items) {
   buttons.addEventListener("click", (event) => onButtonClick(event, items));
 }
 
-// main
+// main;
 loadItmes()
   .then((items) => {
     displayItems(items);
