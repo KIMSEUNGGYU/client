@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- defer 옵션이 없으면  header 에 있는 js 파일을 다운받기 전까지 html 을 파싱하지 않음 -->
+    <script src="window-load.js" defer></script>
+  </head>
+  <body>
+    <script>
+      // only document -> HTML 만 완료가 되면 호출함 (2 호출)
+      window.addEventListener("DOMContentLoaded", () => {
+        console.log("DOMContentLoaded");
+      });
+
+      // after resources (css, images) (3 호출)
+      // 모든 리소스가 다 받아지면 event가 발생됨
+      window.addEventListener("load", () => {
+        console.log("load");
+      });
+
+      // before unload
+      // 언로드 되기 직전! (사용자가 페이지를 나가기 직전?)
+      // unload 되기 전 호출
+      window.addEventListener("beforeunload", () => {
+        console.log("beforeunload");
+      });
+
+      // resource is being unloaded
+      // 페이지가 unload 되었을 때
+      // 리소스가 unloaded가 되었을 때 호출..?
+      window.addEventListener("unload", () => {
+        console.log("unload");
+      });
+    </script>
+    <scrip></scrip>
+  </body>
+</html>
